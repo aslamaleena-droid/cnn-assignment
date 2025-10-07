@@ -1,12 +1,12 @@
 # CNN Image Classifier (MNIST)
 Train a small CNN, serve it with FastAPI, and classify images.
 
-## Quick start
+## Quick start (local)
+```bash
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python train.py
-uvicorn app.main:app --reload
-
-## Docker
-docker build -t cnn-api .
-docker run -p 8000:8000 cnn-api
+python train.py                    # creates model.pth
+python -m uvicorn app.main:app --reload --port 8015
+# open:
+# http://localhost:8015/healthz
+# http://localhost:8015/docs
